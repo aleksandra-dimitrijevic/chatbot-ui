@@ -45,12 +45,15 @@ interface Props {
   serverSideApiKeyIsSet: boolean;
   serverSidePluginKeysSet: boolean;
   defaultModelId: OpenAIModelID;
+  handleLogout: () => void
 }
 
 const Home = ({
   serverSideApiKeyIsSet,
   serverSidePluginKeysSet,
   defaultModelId,
+  handleLogout
+
 }: Props) => {
   const { t } = useTranslation('chat');
   const { getModels } = useApiService();
@@ -357,6 +360,7 @@ const Home = ({
         handleUpdateFolder,
         handleSelectConversation,
         handleUpdateConversation,
+        handleLogout
       }}
     >
       <Head>

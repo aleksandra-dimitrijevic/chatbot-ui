@@ -39,6 +39,7 @@ export const Chatbar = () => {
     handleCreateFolder,
     handleNewConversation,
     handleUpdateConversation,
+    handleLogout
   } = useContext(HomeContext);
 
   const {
@@ -234,7 +235,7 @@ export const Chatbar = () => {
         handleCreateItem={handleNewConversation}
         handleCreateFolder={() => handleCreateFolder(t('New folder'), 'chat')}
         handleDrop={handleDrop}
-        footerComponent={<ChatbarSettings />}
+        footerComponent={<ChatbarSettings handleLogout={handleLogout}/>}
       />
     </ChatbarContext.Provider>
   );

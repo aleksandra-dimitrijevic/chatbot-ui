@@ -1,4 +1,4 @@
-import { IconFileExport, IconSettings } from '@tabler/icons-react';
+import { IconFileExport, IconSettings, IconLogout } from '@tabler/icons-react';
 import { useContext, useState } from 'react';
 
 import { useTranslation } from 'next-i18next';
@@ -14,7 +14,7 @@ import ChatbarContext from '../Chatbar.context';
 import { ClearConversations } from './ClearConversations';
 import { PluginKeys } from './PluginKeys';
 
-export const ChatbarSettings = () => {
+export const ChatbarSettings = ({handleLogout}: {handleLogout: () => void}) => {
   const { t } = useTranslation('sidebar');
   const [isSettingDialogOpen, setIsSettingDialog] = useState<boolean>(false);
 
@@ -61,6 +61,13 @@ export const ChatbarSettings = () => {
       ) : null}
 
       {!serverSidePluginKeysSet ? <PluginKeys /> : null}
+
+      
+      <SidebarButton
+        text='Log Out'
+        icon={<IconLogout size={18} />}
+        onClick={handleLogout}
+      />
 
       <SettingDialog
         open={isSettingDialogOpen}
